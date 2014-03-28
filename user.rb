@@ -1,8 +1,25 @@
+require './database'
+require './contact'
+
+
 class User
 
 	def initialize
-		get_input
+		@database = Database.new
+		main_input
+	end
 
+	def get_integer
+		gets.chomp.to_i
+	end
+
+	def get_string
+		gets.chomp.split(" ")
+	end
+
+	def main_input
+		main_menu
+		main_controller(get_integer)
 	end
 
 	def main_menu
@@ -12,14 +29,31 @@ class User
 		puts "0. QUIT"
 	end
 
-	def get_input
-		main_menu
-		perform(gets.chomp.to_i)
-	end
-
-	def perform(user_request)
+	def main_controller(user_request)
 		if user_request == 1 then add_contact end
 		if user_request == 0 then end_program end
+	end
+
+	def contact_menu
+		puts "\e[H\e[2J"
+		puts "What attributes would you like to include?"
+		puts "1. Name"
+	end
+
+	def add_contact
+		@contact = Contact.new
+		contact_menu
+		add_contact_controller(get_integer)
+
+	end
+
+	def add_contact_controller(user_request)
+		if user_request == 1 then assign_name end
+	end
+
+	def assign_name
+		puts "Name (x: Steve Smith)"
+		@contact.set_name(get_string)
 	end
 
 	def end_program
