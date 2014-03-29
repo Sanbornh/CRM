@@ -11,18 +11,17 @@ class User
 	end
 
 	def run
-		@main_menu.display
-		input = @main_menu.get_input
+		@main_menu.run
 	end
 
 	def get_string
 		gets.chomp.split(" ")
 	end
 
-	def main_controller(user_request)
-		if user_request == 1 then add_contact end
-		if user_request == 0 then end_program end
-	end
+	# def main_controller(user_request)
+	# 	if user_request == 1 then add_contact end
+	# 	if user_request == 0 then end_program end
+	# end
 
 	def contact_menu
 		puts "\e[H\e[2J"
@@ -46,10 +45,7 @@ class User
 		@contact.set_name(get_string)
 	end
 
-	def end_program
-		puts "\e[H\e[2J"
-		puts "Goodbye"
-	end
+
 end
 
 user = User.new

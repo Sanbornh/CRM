@@ -1,5 +1,11 @@
 class Menu
 
+	def run
+		display
+		@usr_request = get_input
+		perform_request
+	end
+
 	def display
 		puts @menu
 	end
