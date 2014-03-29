@@ -16,15 +16,18 @@ class ContactMenu
 			"\e[H\e[2J",
 			"What attributes would you like to include?",
 			"1. Name",
+			"2. Note",
 
 		]
 	end
 
 	def run(contact)
 		@contact = contact
-		display_menu
-		get_input
-		perform_request
+		while true
+			display_menu
+			get_input
+			perform_request
+		end
 	end
 
 	def display_menu
@@ -38,11 +41,20 @@ class ContactMenu
 
 	def perform_request
 		if @usr_request == 1 then assign_name end
+		if @usr_request == 2 then add_note end
 	end
 
 	def assign_name
-		puts "Name (x: Steve Smith)"
+		print "Name (x: Steve Smith): "
 		@contact.set_name
 	end
 
+	def add_note
+		puts "Enter Note:"
+		@contact.new_note
+	end
+
 end
+
+
+
