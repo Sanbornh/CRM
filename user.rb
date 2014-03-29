@@ -1,12 +1,13 @@
 require './database'
 require './contact'
-
+require './main_menu'
 
 class User
 
 	def initialize
 		@database = Database.new
-		main_input
+		@main_menu = MainMenu.new	
+		@main_menu.display
 	end
 
 	def get_integer
@@ -22,12 +23,12 @@ class User
 		main_controller(get_integer)
 	end
 
-	def main_menu
-		puts "\e[H\e[2J"
-		puts "---- Main Menu ----".center(25)
-		puts "1. Add new Contact"
-		puts "0. QUIT"
-	end
+	# def main_menu
+	# 	puts "\e[H\e[2J"
+	# 	puts "---- Main Menu ----".center(25)
+	# 	puts "1. Add new Contact"
+	# 	puts "0. QUIT"
+	# end
 
 	def main_controller(user_request)
 		if user_request == 1 then add_contact end
