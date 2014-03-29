@@ -18,11 +18,6 @@ class User
 		gets.chomp.split(" ")
 	end
 
-	# def main_controller(user_request)
-	# 	if user_request == 1 then add_contact end
-	# 	if user_request == 0 then end_program end
-	# end
-
 	def contact_menu
 		puts "\e[H\e[2J"
 		puts "What attributes would you like to include?"

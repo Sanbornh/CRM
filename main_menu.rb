@@ -1,9 +1,13 @@
 require './Menu'
+require './contact_menu'
 
 
 class MainMenu < Menu
 
+	attr_accessor :contact
+
 	def initialize
+		@contact_menu = ContactMenu.new
 		@menu = [
 
 			"\e[H\e[2J",
@@ -21,6 +25,8 @@ class MainMenu < Menu
 
 	def add_contact
 		@contact = Contact.new
+		@contact_menu.run(@contact)
+		# add_contact_controller(get_integer)
 	end
 
 	def end_program

@@ -1,12 +1,17 @@
+# Parent class of all menus
+# in CRM. Handles functionality shared
+# by all menus.
+
 class Menu
 
-	def run
-		display
+	def run(*contact)
+		@contact = contact
+		display_menu
 		@usr_request = get_input
 		perform_request
 	end
 
-	def display
+	def display_menu
 		puts @menu
 	end
 

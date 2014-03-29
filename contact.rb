@@ -7,7 +7,8 @@ class Contact
 		@id = @@contact_id
 	end
 
-	def set_name(name)
+	def set_name
+		name = gets.chomp.split(" ")
 		@first_name = name[0]
 		@last_name = name[1]
 	end
