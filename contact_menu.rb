@@ -11,21 +11,24 @@ require './contact'
 class ContactMenu
 
 	def initialize
+		@done = false
 		@menu = [
 
 			"\e[H\e[2J",
 			"What attributes would you like to include?",
 			"1. Name",
 			"2. Note",
+			"0. Return to Main Menu",
 
 		]
 	end
 
 	def run(contact)
 		@contact = contact
-		while true
+		# binding.pry
+		while !@done
 			display_menu
-			get_input
+			get_request
 			perform_request
 		end
 	end
@@ -34,7 +37,7 @@ class ContactMenu
 		puts @menu
 	end
 
-	def get_input
+	def get_request
 		@usr_request = gets.chomp.to_i
 	end
 
@@ -42,14 +45,17 @@ class ContactMenu
 	def perform_request
 		if @usr_request == 1 then assign_name end
 		if @usr_request == 2 then add_note end
+		if @usr_request == 0 then @done = true end
 	end
 
 	def assign_name
-		print "Name (x: Steve Smith): "
+		puts "\e[H\e[2J"
+		puts "Name (x: Steve Smith): "
 		@contact.set_name
 	end
 
 	def add_note
+		puts "\e[H\e[2J"
 		puts "Enter Note:"
 		@contact.new_note
 	end
