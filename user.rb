@@ -7,28 +7,17 @@ class User
 	def initialize
 		@database = Database.new
 		@main_menu = MainMenu.new	
-		@main_menu.display
+		run
 	end
 
-	def get_integer
-		gets.chomp.to_i
+	def run
+		@main_menu.display
+		input = @main_menu.get_input
 	end
 
 	def get_string
 		gets.chomp.split(" ")
 	end
-
-	def main_input
-		main_menu
-		main_controller(get_integer)
-	end
-
-	# def main_menu
-	# 	puts "\e[H\e[2J"
-	# 	puts "---- Main Menu ----".center(25)
-	# 	puts "1. Add new Contact"
-	# 	puts "0. QUIT"
-	# end
 
 	def main_controller(user_request)
 		if user_request == 1 then add_contact end
