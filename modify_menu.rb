@@ -1,3 +1,5 @@
+require './attribute_menu'
+
 class ModifyMenu
 
 	def initialize
@@ -18,14 +20,16 @@ class ModifyMenu
 	end
 
 	def run
-		display_menu
+		display(@mainmenu)
 		get_request
 		perform_request
 		@contact.display
+		attribute_menu = AttributeMenu.new(@contact)
+		attribute_menu.run
 	end
 
-	def display_menu
-		puts @mainmenu
+	def display(menu)
+		puts menu
 	end
 
 	def get_request
@@ -40,7 +44,6 @@ class ModifyMenu
 		puts "\e[H\e[2J"
 		puts "Enter Contact's First Name"
 		@contact = $database.find(gets.chomp.upcase)
-		# binding.pry
 	end
 
 

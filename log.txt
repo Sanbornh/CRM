@@ -1,1 +1,1 @@
-{:id=>9, :database=>[#<Contact:0x007fdb29208c38 @id=1, @notes=["note notenote"], @first_name="Sanborn", @last_name="Hilland">, #<Contact:0x007fdb29208148 @id=2, @notes=["different note"], @first_name="Erasmus", @last_name="Hilland">]}
+{:id=>9, :database=>[#<Contact:0x007ffd02a01ed0 @id=1, @notes=["note ntoetn note"], @first_name="Jeff", @last_name=nil>]}
