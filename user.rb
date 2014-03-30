@@ -5,7 +5,7 @@ require './main_menu'
 class User
 
 	def initialize
-		@database = Database.new
+		$database = Database.new
 		@main_menu = MainMenu.new	
 		run
 	end

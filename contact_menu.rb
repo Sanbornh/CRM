@@ -1,11 +1,6 @@
 # Displays options available when adding 
 # a new contact. 
 
-# !! INHERITS BEHAVIOUR FROM MENU AND
-# IS CLOSELY COUPLED. YOU NEED TO KNOW
-# WHAT'S GOING ON IN MENU TO MODIFY CONTACTMENU 
-# !!
-
 require './contact'
 
 class ContactMenu
@@ -25,7 +20,6 @@ class ContactMenu
 
 	def run(contact)
 		@contact = contact
-		# binding.pry
 		while !@done
 			display_menu
 			get_request
@@ -45,22 +39,37 @@ class ContactMenu
 	def perform_request
 		if @usr_request == 1 then assign_name end
 		if @usr_request == 2 then add_note end
-		if @usr_request == 0 then @done = true end
+		if @usr_request == 0 then save_and_exit end
 	end
 
 	def assign_name
-		puts "\e[H\e[2J"
+		puts "\e[H\e[2J"   # Clears terminal window
 		puts "Name (x: Steve Smith): "
 		@contact.set_name
 	end
 
 	def add_note
-		puts "\e[H\e[2J"
+		puts "\e[H\e[2J"	 # Clears terminal window
 		puts "Enter Note:"
 		@contact.new_note
 	end
 
+	def save_and_exit
+		@done = true
+		$database.add_to_database(@contact)
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
 
 
 

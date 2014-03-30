@@ -18,4 +18,14 @@ class Contact
 		@notes << gets.chomp
 	end
 
+	def display
+		puts "Contact ID: #{@id}"
+		if !@first_name.nil? then print "Name: #{@first_name} " end
+		if !@last_name.nil? then puts "#{@last_name}" end
+		if !@notes.empty? 
+			puts "Notes: "
+			@notes.each { |note| puts "\n#{note}"}
+		end
+		puts "----------------"
+	end
 end

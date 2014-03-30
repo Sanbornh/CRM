@@ -1,19 +1,20 @@
-require './Menu'
 require './contact_menu'
+
 
 
 class MainMenu
 
-	attr_accessor :contact
+	#attr_accessor :contact
 
 	def initialize
 		@done = false
-		@contact_menu = ContactMenu.new
+		# @contact_menu = ContactMenu.new
 		@menu = [
 
 			"\e[H\e[2J",
 			"---- Main Menu ----".center(25),
-		  "1. Add new Contact",
+		  "1. Add New Contact",
+		  "2. Display Contacts",
 			"0. QUIT",
 
 		]
@@ -36,14 +37,35 @@ class MainMenu
 	end
 
 	def perform_request
+		# binding.pry
 		if @usr_request == 1 then add_contact end
+		if @usr_request == 2 then display_contact end
 		if @usr_request == 0 then @done = true end
 	end
 
 	def add_contact
+		@contact_menu = ContactMenu.new
 		@contact = Contact.new
 		@contact_menu.run(@contact)
 	end
 
+	def display_contact
+		puts "\e[H\e[2J"	 # Clears terminal window
+		$database.display
+		puts "\nReturn to main menu? (Enter)"
+		gets.chomp
+	end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
