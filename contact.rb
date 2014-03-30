@@ -1,6 +1,8 @@
 class Contact
 
 	@@contact_id = 0
+	attr_reader :first_name
+
 
 	def initialize
 		@@contact_id += 1

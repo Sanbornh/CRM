@@ -14,4 +14,11 @@ class Database
 		@contacts.each { |contact| contact.display }
 	end
 
+	def find(name)
+		@contacts.each do |contact|
+			if contact.first_name.upcase == name then @return_value = contact end
+		end
+		return @return_value
+	end
 end
+

@@ -1,5 +1,5 @@
 require './contact_menu'
-
+require './modify_menu'
 
 
 class MainMenu
@@ -15,7 +15,8 @@ class MainMenu
 			"---- Main Menu ----".center(25),
 		  "1. Add New Contact",
 		  "2. Display Contacts",
-			"0. QUIT",
+		  "3. Modify A Contact",
+			"0. QUIT",	
 
 		]
 	end
@@ -37,9 +38,9 @@ class MainMenu
 	end
 
 	def perform_request
-		# binding.pry
 		if @usr_request == 1 then add_contact end
 		if @usr_request == 2 then display_contact end
+		if @usr_request == 3 then modify_contact end
 		if @usr_request == 0 then @done = true end
 	end
 
@@ -54,6 +55,11 @@ class MainMenu
 		$database.display
 		puts "\nReturn to main menu? (Enter)"
 		gets.chomp
+	end
+
+	def modify_contact
+		@modify_menu = ModifyMenu.new
+		@modify_menu.run
 	end
 
 end
