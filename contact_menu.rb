@@ -1,7 +1,7 @@
 # Displays options available when adding 
 # a new contact. 
 
-require './contact'
+# require './contact'
 
 class ContactMenu
 

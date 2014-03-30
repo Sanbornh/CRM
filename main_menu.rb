@@ -1,5 +1,6 @@
 require './contact_menu'
 require './modify_menu'
+require './contact.rb'
 
 
 class MainMenu
@@ -7,8 +8,9 @@ class MainMenu
 	#attr_accessor :contact
 
 	def initialize
+		# binding.pry
+		# @contact = Contact.new
 		@done = false
-		# @contact_menu = ContactMenu.new
 		@menu = [
 
 			"\e[H\e[2J",
@@ -38,16 +40,22 @@ class MainMenu
 	end
 
 	def perform_request
-		if @usr_request == 1 then add_contact end
-		if @usr_request == 2 then display_contact end
-		if @usr_request == 3 then modify_contact end
-		if @usr_request == 0 then @done = true end
+		if @usr_request == 1 
+			add_contact
+		elsif @usr_request == 2 
+			display_contact 
+		elsif @usr_request == 3 
+			modify_contact
+		elsif @usr_request == 0 
+			@done = true 
+		end
 	end
 
 	def add_contact
+		# binding.pry
 		@contact_menu = ContactMenu.new
-		@contact = Contact.new
-		@contact_menu.run(@contact)
+		contact = Contact.new
+		@contact_menu.run(contact)
 	end
 
 	def display_contact

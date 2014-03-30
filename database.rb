@@ -1,8 +1,10 @@
 class Database
 
-	#attr_accessor :contacts
+	attr_accessor :contacts
 
 	def initialize
+		# log = File.open('./log.txt', 'r') { |file| eval file.read }
+		# @contacts = log[:database]
 		@contacts = []
 	end
 

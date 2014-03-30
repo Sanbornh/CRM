@@ -1,11 +1,18 @@
 class ModifyMenu
 
 	def initialize
-		@menu = [
+		@mainmenu = [
 
 			"\e[H\e[2J",
 			"Choose contact by?",
 			"1. First name",
+
+		]
+
+		@attribute_menu = [
+
+			"Edit...",
+			"1. Name",
 
 		]
 	end
@@ -14,10 +21,11 @@ class ModifyMenu
 		display_menu
 		get_request
 		perform_request
+		@contact.display
 	end
 
 	def display_menu
-		puts @menu
+		puts @mainmenu
 	end
 
 	def get_request
@@ -32,7 +40,7 @@ class ModifyMenu
 		puts "\e[H\e[2J"
 		puts "Enter Contact's First Name"
 		@contact = $database.find(gets.chomp.upcase)
-		binding.pry
+		# binding.pry
 	end
 
 

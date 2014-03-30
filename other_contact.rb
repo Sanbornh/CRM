@@ -1,10 +1,10 @@
 class Contact
 
- 	#log = File.open('./log.txt', 'r') { |file| eval file.read }
+	#log = File.open('./log.txt', 'r') { |file| eval file.read }
 	# @@contact_id = log[:id]
 
 	@@contact_id = 0
-	attr_reader :first_name
+	attr_accessor :first_name
 
 	def initialize
 		puts "hello"
