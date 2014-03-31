@@ -1,0 +1,46 @@
+require 'yaml'
+
+class Ogre
+  attr_accessor :strength, :speed, :smell
+  def initialize(strength, speed, smell)
+    @strength = strength
+    @speed = speed
+    @smell = smell
+ 	end
+
+ 	def hack
+ 		puts "hack!"
+ 	end
+
+ 	def slash
+ 		puts "slash!"
+ 	end
+end
+
+class Army
+
+	attr_accessor :army
+	def initialize
+		@army = []
+	end
+
+	def enlist(ogre)
+		@army << ogre
+	end
+
+
+end
+
+
+def load_game
+  game_file = File.new("./game_log.txt")
+  yaml = game_file.read
+  log = YAML.load(yaml)
+  $ogre1 = log[0]
+  $ogre2 = log[1]
+  # binding.pry
+end
+
+load_game
+$ogre1.hack
+$ogre2.slash

@@ -3,7 +3,7 @@ require 'yaml'
 
 class Database
 
-	attr_accessor :contacts
+	attr_accessor :contacts, :highest_id
 
 	def initialize
 		@contacts = []
@@ -11,13 +11,14 @@ class Database
 	end
 
 	def load_log
-	  log = File.open("./log.txt")
-	  yaml = log.read
-	  log = YAML.load(yaml)
-	  @contacts = log[:contacts]
-	  # binding.pry
+		log = File.new("./log.txt")
+		yaml = log.read
+		log = YAML.load(yaml)
+		@contacts = log[:database]
+		@highest_id = log[:id]
+		# @contacts = []
+		# binding.pry
 	end
-
 
 	def add_to_database(contact)
 		# binding.pry
@@ -35,4 +36,7 @@ class Database
 		return @return_value
 	end
 end
+
+
+
 

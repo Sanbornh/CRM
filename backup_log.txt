@@ -1,5 +1,5 @@
 ---
-:id: 2
+:id: 1
 :database:
 - !ruby/object:Contact
   id: 1
@@ -7,9 +7,3 @@
   - This is a test case
   first_name: Sanborn
   last_name: Hilland
-- !ruby/object:Contact
-  id: 2
-  notes:
-  - I think Fred Penner is dead
-  first_name: Fred
-  last_name: Penner

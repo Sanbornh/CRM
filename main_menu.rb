@@ -8,8 +8,6 @@ class MainMenu
 	#attr_accessor :contact
 
 	def initialize
-		# binding.pry
-		# @contact = Contact.new
 		@done = false
 		@menu = [
 
@@ -52,7 +50,6 @@ class MainMenu
 	end
 
 	def add_contact
-		# binding.pry
 		@contact_menu = ContactMenu.new
 		contact = Contact.new
 		@contact_menu.run(contact)

@@ -1,6 +1,7 @@
-require './database'
+require './database1'
 # require './contact'
 require './main_menu'
+require 'yaml'
 
 class User
 
@@ -12,6 +13,7 @@ class User
 
 	def run
 			@main_menu.run
+			# binding.pry
 			end_program
 	end
 
@@ -24,14 +26,17 @@ class User
 
 	def save_logfile
 		generate_log
-		File.write('./log.txt', @log)
+		yaml = YAML.dump(@log)
+		log = File.open("./log.txt", 'w')
+		log.write(yaml)
 	end
 
 	def generate_log
 		@log = {
 
-			id: 9,
+			id: Contact.get_id,
 			database: $database.contacts
+
 		}
 	end
 end

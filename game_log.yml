@@ -1,0 +1,9 @@
+---
+- !ruby/object:Ogre
+  strength: 10
+  speed: 4
+  smell: 9
+- !ruby/object:Ogre
+  strength: 11
+  speed: 9
+  smell: 1

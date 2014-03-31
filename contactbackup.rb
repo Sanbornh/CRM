@@ -1,16 +1,11 @@
 class Contact
 
-	# binding.pry
-	log = File.new("./log.txt")
-	yaml = log.read
-	log = YAML.load(yaml)
-	# binding.pry
-	@@contact_id = log[:id]
+	@@contact_id = 0
 	attr_reader :first_name
 
 	def initialize
 		@@contact_id += 1
-		# binding.pry
+		binding.pry
 		@id = @@contact_id
 		@notes = []
 	end
