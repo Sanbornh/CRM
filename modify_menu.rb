@@ -3,20 +3,16 @@ require './attribute_menu'
 class ModifyMenu
 
 	def initialize
+
 		@mainmenu = [
 
 			"\e[H\e[2J",
 			"Choose contact by?",
 			"1. First name",
+			"2. Last name",
 
 		]
 
-		@attribute_menu = [
-
-			"Edit...",
-			"1. Name",
-
-		]
 	end
 
 	def run
@@ -37,14 +33,36 @@ class ModifyMenu
 	end
 
 	def perform_request
-		if @usr_request == 1 then get_by_frst_name end	
+		
+		case @usr_request
+		when 1 then get_by_frst_name
+		when 2 then get_by_last_name
+		end
+
 	end
 
 	def get_by_frst_name
 		puts "\e[H\e[2J"
 		puts "Enter Contact's First Name"
-		@contact = $database.find(gets.chomp.upcase)
+		@contact = $database.find_first(gets.chomp.upcase)
+	end
+
+	def get_by_last_name
+		puts "\e[H\e[2J"
+		puts "Enter Contact's Last Name"
+		@contact = $database.find_last(gets.chomp.upcase)
 	end
 
 
 end
+
+
+
+
+
+
+
+
+
+
+

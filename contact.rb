@@ -6,7 +6,7 @@ class Contact
 	log = YAML.load(yaml)
 	# binding.pry
 	@@contact_id = log[:id]
-	attr_reader :first_name
+	attr_reader :first_name, :last_name
 
 	def initialize
 		@@contact_id += 1

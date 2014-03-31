@@ -37,9 +37,13 @@ class ContactMenu
 
 
 	def perform_request
-		if @usr_request == 1 then assign_name end
-		if @usr_request == 2 then add_note end
-		if @usr_request == 0 then save_and_exit end
+
+		case @usr_request
+		when 1 then assign_name
+		when 2 then add_note
+		when 0 then save_and_exit
+		end
+		
 	end
 
 	def assign_name

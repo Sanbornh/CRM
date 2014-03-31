@@ -38,15 +38,14 @@ class MainMenu
 	end
 
 	def perform_request
-		if @usr_request == 1 
-			add_contact
-		elsif @usr_request == 2 
-			display_contact 
-		elsif @usr_request == 3 
-			modify_contact
-		elsif @usr_request == 0 
-			@done = true 
+
+		case @usr_request
+		when 1 then add_contact
+		when 2 then display_contact
+		when 3 then modify_contact
+		when 0 then @done = true
 		end
+	
 	end
 
 	def add_contact
